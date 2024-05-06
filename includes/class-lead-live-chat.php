@@ -164,8 +164,22 @@ class Lead_Live_Chat {
 		$lead_live_chat_shortcodes = new Lead_Live_Chat_Shortcodes();
 		$this->loader->add_action( 'init', $lead_live_chat_shortcodes, 'add_shortcodes' );
 
+		// Enqueue public-facing styles and scripts
+		$this->loader->add_action('wp_enqueue_scripts', $this, 'enqueue_styles');
+		$this->loader->add_action('wp_enqueue_scripts', $this, 'enqueue_scripts');
+
 	}
 
+	public function enqueue_styles() {
+		wp_enqueue_style('lead-live-chat-iframe-style', LEAD_LIVE_CHAT_PLUGIN_URL . 'node_modules/iframe-resizer/css/iframestyle.css');
+	}
+	
+	public function enqueue_scripts() {
+		wp_enqueue_script('lead-live-chat-iframe-resizer', LEAD_LIVE_CHAT_PLUGIN_URL . 'node_modules/iframe-resizer/js/iframeResizer.min.js', array(), null, true);
+		wp_enqueue_script('iframe-resizer-content-window', LEAD_LIVE_CHAT_PLUGIN_URL . 'node_modules/iframe-resizer/js/iframeResizer.contentWindow.min.js', array(), null, true);
+		wp_enqueue_script('lead-live-chat-iframe-widget', LEAD_LIVE_CHAT_PLUGIN_URL . 'node_modules/iframe-resizer/js/iframeWidget.js', array('lead-live-chat-iframe-resizer'), null, true);
+	}
+	
 	/**
 	 * Run the loader to execute all of the hooks with WordPress.
 	 *

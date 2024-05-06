@@ -48,6 +48,13 @@ define( 'LEAD_LIVE_CHAT_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
  */
 define( 'LEAD_LIVE_CHAT_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
+$css_url_iframe = LEAD_LIVE_CHAT_PLUGIN_URL . 'node_modules/iframe-resizer/css/iframestyle.css';
+$js_url_if_resizer = LEAD_LIVE_CHAT_PLUGIN_URL . 'node_modules/iframe-resizer/js/iframeResizer.js';
+$js_url_if_resizer_min = LEAD_LIVE_CHAT_PLUGIN_URL . 'node_modules/iframe-resizer/js/iframeResizer.min.js';
+$js_url_if_widget = LEAD_LIVE_CHAT_PLUGIN_URL . 'node_modules/iframe-resizer/js/iframeWidget.js';
+$js_url_if_content = LEAD_LIVE_CHAT_PLUGIN_URL . 'node_modules/iframe-resizer/js/iframeResizer.contentWindow.js';
+$js_url_if_content_min = LEAD_LIVE_CHAT_PLUGIN_URL . 'node_modules/iframe-resizer/js/iframeResizer.contentWindow.min.js';
+
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-lead-live-chat-activator.php
